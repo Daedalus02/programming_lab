@@ -27,11 +27,16 @@
             moves[2] = true; 
             return m.move_robot(moves);
         }
+        if(possible[last_direction]){
+            moves[last_direction] = true; 
+            return m.move_robot(moves);
+        }
         srand(time(NULL));
         int random_index = rand()%8;
         while(possible[random_index] == false){
             random_index = rand() % 8;
         }
         moves[random_index] = true;
+        last_direction = random_index;
         return m.move_robot(moves);
     }

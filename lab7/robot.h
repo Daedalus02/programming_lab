@@ -32,5 +32,9 @@ public:
 
 //MEMBER FUNCTIONS
     bool move(Maze& m) override;
+
+private:
+//DATA MEMBER
+    int last_direction;
 };
 #endif
