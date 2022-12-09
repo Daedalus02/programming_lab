@@ -76,6 +76,7 @@
 			}
 			os << '\n';
 		}
+		return os;
 	}
 	bool Maze::check_valid(int index) const{
 		return check_position(x_position_+x_moves[index],y_position_+y_moves[index]) && (map_[x_position_+x_moves[index]][y_position_+y_moves[index]] == ' ' || map_[x_position_+x_moves[index]][y_position_+y_moves[index]] == 'E' );
