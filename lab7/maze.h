@@ -15,8 +15,8 @@ public:
 	Maze(std::string filename);
 
 //MEMBER FUNCTION
-	//check if the position entered is an exit
-	bool check_exit(int x, int y) const;
+	//check if current position is an exit
+	bool check_exit() const;
 	//set the values of the boolean array entered representing the possible moves 
 	void valid_moves(bool m[8]) const;
 	//return if the position id valid for robot
@@ -25,8 +25,8 @@ public:
 	int  get_x() const;
 	//return the initial y
 	int get_y() const;
-	//set the new position and return true if robot got to an exit else return false 
-	bool move_robot(bool m[8]);
+	//set the new position for robot
+	void move_robot(bool m[8]);
 	//insertion operator	
 	std::ostream& write(std::ostream& os) const;
 

@@ -62,9 +62,8 @@
 	}
 	
 //MEMBER FUNCTIONS
-	bool Maze::check_exit(int x, int y) const{
-		check_position(x, y);
-		if(x == 0 || x == (size-1) || y == 0 || y == (size-1)){
+	bool Maze::check_exit() const{
+		if(x_position_ == 0 || x_position_ == (size-1) || y_position_ == 0 || y_position_ == (size-1)){
 			return true;
 		}
 		return false;
@@ -92,7 +91,7 @@
 	int Maze::get_y() const{
 		return y_position_;
 	}
-	bool Maze::move_robot(bool m[8]){
+	void Maze::move_robot(bool m[8]){
 		bool moved = false;
 		for(int i = 0; i < 8; i++){
 			if(m[i] == true){
@@ -102,10 +101,6 @@
 				map_[x_position_][y_position_] = ' ';
 				x_position_ = x_position_ + x_moves[i];
 				y_position_ = y_position_ + y_moves[i];
-				if(map_[x_position_][y_position_] == 'E'){
-					map_[x_position_][y_position_] = 'S';
-					return true;
-				}
 				map_[x_position_][y_position_] = 'S';
 				moved = true;
 			}
@@ -113,7 +108,6 @@
 		if(!moved){
 			throw std::invalid_argument("No possible moves in current position!");
 		}
-		return false;
 	}
 
 //OPERATORS
